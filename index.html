@@ -100,30 +100,34 @@
      This version follows the structure/content from the provided doc (About Me, Services, Clients, Contact)
      and keeps the Bootstrap styling approach. -->
 
-        <!-- Hero / header with mountain banner + circular portrait badge -->
+        <!-- Hero / header (mobile friendly) -->
         <header class="hero border-bottom">
             <div class="d-flex"
-                style="background-image: url(mountains.png); background-size: cover; background-position: center; min-height: 420px;">
-
+                style="background-image: url(mountains.png); background-size: cover; background-position: center; min-height: 480px;">
                 <div class="container h-100 m-auto">
                     <div class="d-flex align-items-center h-100">
-                        <div
-                            class="bg-white bg-opacity-90 rounded-4 p-4 p-md-5 shadow-sm d-flex align-items-center gap-4">
+                        <div class="bg-white bg-opacity-90 rounded-4 p-4 p-md-5 m-1 shadow-sm w-100
+                 d-flex flex-column flex-md-row align-items-center align-items-md-start
+                 gap-4 text-center text-md-start">
 
                             <!-- Photo -->
-                            <img src="photo.jpg" alt="Portrait of Sylvie Di Nella" width="210" height="210"
+                            <img src="photo.jpg" alt="Portrait of Sylvie Di Nella" width="160" height="160"
                                 class="rounded-circle border border-3 border-white shadow-sm flex-shrink-0"
                                 style="object-fit: cover;" loading="eager" />
 
                             <!-- Text -->
                             <div>
-                                <h1 class="display-6 fw-semibold mb-2">Sylvie Di Nella</h1>
-                                <p class="text-muted">Charted Accountant</p>
-                                <p class="display-6 text-secondary mb-0">
+                                <h1 class="display-6 fw-semibold mb-1">Sylvie Di Nella</h1>
+                                <p class="text-muted mb-2">Chartered Accountant</p>
+
+                                <p class="fs-4 text-secondary mb-4">
                                     Advice, planning and optimisation for French and English speakers living in France
                                     or with assets in France.
                                 </p>
-                                <a href="#contact" class="btn btn-primary mt-4">Get in touch</a>
+
+                                <a href="#contact" class="btn btn-primary btn-lg">
+                                    Get in touch
+                                </a>
                             </div>
 
                         </div>
@@ -131,6 +135,29 @@
                 </div>
             </div>
         </header>
+
+        <!-- Back to top button -->
+        <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-3 d-none" style="z-index: 1030;"
+            aria-label="Back to top">
+            ↑
+        </button>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.remove('d-none');
+                } else {
+                    backToTop.classList.add('d-none');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
+
 
 
 
